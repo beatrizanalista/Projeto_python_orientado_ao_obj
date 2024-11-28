@@ -12,3 +12,5 @@ cursor.execute('''
         idade INTEGER
     )
  ''')
+
+# isto e um comentario
