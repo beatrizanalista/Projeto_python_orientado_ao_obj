@@ -1,3 +1,4 @@
+from apagar import apagar
 import os
 
 
@@ -24,7 +25,8 @@ while True:
     elif opcao == '5':
         pass
     elif opcao == '6':
-        pass
+       pergunta = input("Em qual tabela você deseja apagar? ")
+       apagar(pergunta)
     elif opcao == '7':
         print("Obrigado, boa viajem!")
         break
