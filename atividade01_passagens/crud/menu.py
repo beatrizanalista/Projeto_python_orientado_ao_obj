@@ -2,16 +2,16 @@ import os
 
 os.system("cls")
 
-def exibir_menu():
+def mostrar_menu():
     while True:
-        print("\n=== Sistema de Gerenciamento de Passagens Aéreas ===")
+        print("\n=== Sistema de Passagens Aéreas ===")
         print("1. Criar conta")
-        print("2. Cadastrar Voo")
+        print("2. Cadastrar imformações para a compra")
         print("3. Consultar passagem")
-        print("5. Atualizar Informação")
-        print("6. Excluir Registro")
-        print("7. Sair")
-        opcao = input("Escolha uma opção: ")
+        print("5. Atualizar as Informações")
+        print("6. Excluir informação do resgistro da passagem")
+        print("7. Sair do site")
+        opcao = input("Aperte uma opção: ")
 
         if opcao == '1':
             pass
@@ -26,7 +26,7 @@ def exibir_menu():
         elif opcao == '6':
             pass
         elif opcao == '7':
-            print("Saindo do sistema. Até mais!")
+            print("Obrigado!,Boa viajem")
             break
         else:
-            print("Opção inválida. Tente novamente.")
+            print("Ops...ocorreu um erro,tente novamente.")
