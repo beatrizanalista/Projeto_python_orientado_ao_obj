@@ -2,7 +2,7 @@ import os
 import sqlite3
 
 
-conn = sqlite3.connect(""C:/repositorio_beatriz/banco_de_dados_relacional/atividade01_passagens/viajem.db"")
+conn = sqlite3.connect("C:/repositorio_beatriz/banco_de_dados_relacional/atividade01_passagens/viajem.db")
 cursor = conn.cursor()
 
 os.system('cls')
