@@ -2,43 +2,50 @@ import os
 import sqlite3
 
 
-conn = sqlite3.connect("C:/repositorio_beatriz/banco_de_dados_relacional/atividade01_passagens/viajem.db")
+conn = sqlite3.connect( "..\\banco_de_dados_relacional\\atividade01_passagens\\viajem.db")
 cursor = conn.cursor()
 
 os.system('cls')
 
-Atualizar = ("qual tabela você deseja Atualizar? ")
 
-if Atualizar  == "cliente":
+def atualizar(Atualizar):
+    if Atualizar  == "viajante":
 
-    nome_viajante = input("digite o nome do viajante: ")
-    novo_numero = int(input("digite a novo numero: "))
+        nome_viajante = input("digite o nome do viajante: ")
+        novo_numero = int(input("digite a novo numero: "))
 
-    cursor.execute("UPDATE viajante SET telefone = ? WHERE nome = ?",
-                    (novo_numero, nome_viajante))
+        cursor.execute("UPDATE viajante SET telefone = ? WHERE nome = ?",
+                        (novo_numero, nome_viajante))
 
-elif Atualizar  == "site":
-    nome_companhia = input("digite o nome da companhia aerea: ")
-    novo_cupom = input("digite a novo cupom para o desconto: ")
+    elif Atualizar  == "companhia_aerea":
+        nome_companhia = input("digite o nome da companhia aerea: ")
+        novo_cupom = input("digite a novo cupom para o desconto: ")
 
-    cursor.execute("UPDATE site SET cupons = ? WHERE companhias = ?",
-                    (novo_cupom, nome_companhia))
-    
-elif Atualizar  == "destino":
-    atual_destino = input("digite o atual destino: ")
-    novo_destino = input("digite o novo destino para onde deseja ir: ")
+        cursor.execute("UPDATE site SET cupons = ? WHERE companhias = ?",
+                        (novo_cupom, nome_companhia))
+        
+    elif Atualizar  == "classe":
+        assento_atual = input("digite o assento atual: ")
+        novo_assento = input("digite o novo assento que será usado: ")
 
-    cursor.execute("UPDATE destino SET novo_destino = ? WHERE locais = ?",
-                    (novo_destino, nome_destino))
+        cursor.execute("UPDATE classe SET assento_atual = ? WHERE assento = ?",
+                        (novo_assento,assento_atual))
 
-elif Atualizar  == "passagem":
-    nome_viajante = input("digite o nome do viajante: ")
-    nova_data = input("digite a nova data: ")
+    elif Atualizar  == "passagem":
+        nome_viajante = input("digite o nome do viajante: ")
+        nova_data = input("digite a nova data: ")
 
-    cursor.execute("UPDATE passagem SET data = ? WHERE nome_do_viajante = ?",
-                    (nova_data, nome_viajante))
+        cursor.execute("UPDATE passagem SET data = ? WHERE nome_do_viajante = ?",
+                        (nova_data, nome_viajante))
 
 
-conn.commit()
-conn.close()
-print("Atualização Feita!")
+    elif Atualizar  == "preco":
+        preco_atual = input("digite o preco atual para modificar: ")
+        novo_preco = input("digite o novo preco: ")
+
+        cursor.execute("UPDATE passagem SET data = ? WHERE nome_do_viajante = ?",
+                        (novo_preco, preco_atual))
+
+        conn.commit()
+        conn.close()
+        print("Atualização Feita!")
