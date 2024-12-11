@@ -21,7 +21,7 @@ def apagar(pergunta):
         conn.close()
         
         
-    elif pergunta == "site":
+    elif pergunta == "classe":
         nome_cupom = input("Digite a promoção do cupom que não será usado: ")
 
         cursor.execute("DELETE FROM site WHERE cupons = ?", (nome_cupom,))
@@ -32,7 +32,7 @@ def apagar(pergunta):
         conn.close()
         
         
-    elif pergunta == "destino":
+    elif pergunta == "companhia_aerea":
         destino = input("Digite o destino que você deseja remover: ")
 
         cursor.execute("DELETE FROM destino WHERE destino = ?", (destino,))

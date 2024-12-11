@@ -14,7 +14,7 @@ def atualizar(Atualizar):
         nome_viajante = input("digite o nome do viajante: ")
         novo_numero = int(input("digite a novo numero: "))
 
-        cursor.execute("UPDATE viajante SET telefone = ? WHERE nome = ?",
+        cursor.execute("UPDATE viajante SET nome = ? WHERE nome = ?",
                         (novo_numero, nome_viajante))
 
     elif Atualizar  == "companhia_aerea":
