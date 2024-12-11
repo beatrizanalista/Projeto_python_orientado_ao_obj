@@ -5,7 +5,6 @@ from adicionar import adicionar
 import os
 
 
-
 while True:
     os.system("cls")
     print("\n=== Sistema de Passagens Aéreas ===")
@@ -22,12 +21,13 @@ while True:
     elif opcao == '2':
         pergunta = input("Em qual tabela você deseja visualizar:")
         visualizar(pergunta)
+        input('Presione enter pra voltar:')
     elif opcao == '3':
-        pergunta =  input("Em qual tabela você deseja atualizar?")
+        pergunta = input("Em qual tabela você deseja atualizar?")
         atualizar(pergunta)
     elif opcao == '4':
-       pergunta = input("Em qual tabela você deseja apagar? ")
-       apagar(pergunta)
+        pergunta = input("Em qual tabela você deseja apagar? ")
+        apagar(pergunta)
     elif opcao == '5':
         print("Obrigado, boa viajem!")
         break
