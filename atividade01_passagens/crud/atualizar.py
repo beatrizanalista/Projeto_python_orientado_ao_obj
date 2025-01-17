@@ -17,12 +17,12 @@ def atualizar(Atualizar):
         cursor.execute("UPDATE viajante SET nome = ? WHERE nome = ?",
                        (novo_numero, nome_viajante))
 
-    elif Atualizar == "companhia_aerea":
-        nome_companhia = input("digite o nome da companhia aerea: ")
-        novo_cupom = input("digite a novo cupom para o desconto: ")
+    elif Atualizar == "companhia aerea":
+        nome_companhia = input("digite o novo nome da companhia aerea: ")
+        id_companhia = int(input("digite o ID da companhia: "))
 
-        cursor.execute("UPDATE site SET cupons = ? WHERE companhias = ?",
-                       (novo_cupom, nome_companhia))
+        cursor.execute("UPDATE companhia_aerea SET nome_da_empresa = ? WHERE id_companhia = ?", (nome_companhia, id_companhia))
+
 
     elif Atualizar == "classe":
         assento_atual = input("digite o assento atual: ")
@@ -42,9 +42,9 @@ def atualizar(Atualizar):
         preco_atual = input("digite o preco atual para modificar: ")
         novo_preco = input("digite o novo preco: ")
 
-        cursor.execute("UPDATE passagem SET data = ? WHERE nome_do_viajante = ?",
+        cursor.execute("UPDATE passagem SET data = ? WHERE nome_viajante = ?",
                        (novo_preco, preco_atual))
 
-        conn.commit()
-        conn.close()
-        print("Atualização Feita!")
+    conn.commit()
+    conn.close()
+    print("Atualização Feita!")

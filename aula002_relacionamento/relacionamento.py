@@ -7,7 +7,7 @@ import os
 os.system('cls')
 
 
-db_path = path('BD') / 'bd_rel_1_n_.db'
+db_path = Path('aula002_relacionamento') / 'bd_rel_1_n_.db'
 conn = sqlite3.connect(str(db_path))
 cursor = conn.cursor()
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS pedidos (
 
 def cliente_existe(id_cliente):
     cursor.execute(
-        'SELECT 1 FROM Clientes WHERE id_clientes = ?', (id_cliente,))
+        'SELECT 1 FROM Clientes WHERE id_cliente = ?', (id_cliente,))
     return cursor.fetchone() is not None
 
 
@@ -106,11 +106,11 @@ def consultar_pedidos():
     cursor.execute('''
     SELECT
         clientes.nome, Clientes.email, Clientes.cidade, -- campos da tabela clientes
-        Pedidos.pedido, Pedido.quantidade, Pedidos.valor_total -- campos da tabela pedidos
+        pedidos.produto, pedidos.quantidade, pedidos.valor_total -- campos da tabela pedido
     FROM
         Clientes
     JOIN
-        pedidos ON Clientes.id_cliente = Pedido.id_cliente
+        pedidos ON Clientes.id_cliente = pedidos.id_cliente
     ''')
     resultados = cursor.fetchall()
 
@@ -125,7 +125,7 @@ def alterar_pedido():
         id_pedido = int(input('Digite o ID do pedido que deseja alterar: '))
 
         cursor.execute(
-            'SELECT * FROM pedidos WHERE id_peido = ?', (id_pedido))
+            'SELECT * FROM pedidos WHERE id_pedido = ?', (id_pedido,))
         pedido = cursor.fetchone()
         
         if not pedido:
@@ -163,3 +163,32 @@ def alterar_pedido():
         print('-'*70)
         print('Erro: Entrada invalida')
         print('-' *70)
+
+while True:
+    os.system('cls')
+    print('\nMenu:')
+    print('1. Inserir Cliente')
+    print('2.Inserir Pedido')
+    print('3.Consultar Pedidos')
+    print('4.Alterar Pedido')
+    print('5.Sair')
+    opcao = input('Escolha uma opção: ')
+
+    if opcao == '1':
+        inserir_cliente()
+    elif opcao == '2':
+        inserir_pedido()
+    elif opcao == '3':
+        consultar_pedidos()
+    elif opcao == '4':
+        alterar_pedido()
+    elif opcao == '5':
+        print('Saindo...')
+        break
+    else:
+        print('-'*70)
+        print('Opção invalida. tente novamente.')
+        print('-'*70)
+        input()
+
+conn.close()

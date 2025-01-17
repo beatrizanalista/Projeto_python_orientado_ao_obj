@@ -39,7 +39,7 @@ def adicionar(adicionar):
     if adicionar == "companhia aerea":
         nome_da_empresa = input("Insira o nome da empresa do voo:")
         cursor.execute(
-            ' INSERT INTO companhia_aerea (id,nome_da_empresa) values (?,?) ', (nome_da_empresa,))
+            ' INSERT INTO companhia_aerea (nome_da_empresa) values (?) ', (nome_da_empresa,))
 
         conn.commit()
         conn.close()

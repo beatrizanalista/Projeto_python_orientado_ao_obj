@@ -1,4 +1,5 @@
 import sqlite3
+from prettytable import PrettyTable
 
 
 def visualizar(tabela):
@@ -42,12 +43,20 @@ def visualizar(tabela):
             print(row)
         conn.close()
 
-    if tabela == "companhia_aerea":
+    if tabela == "companhia aerea":
         cursor.execute("SELECT * FROM companhia_aerea")
         resultados = cursor.fetchall()
 
-        # os.system('cls')
+        tabela = PrettyTable()
+
+        colunas = [descricao[0] for descricao in cursor.description]
+
+        tabela.field_names = colunas
+
         for row in resultados:
-            print(row)
+            tabela.add_row(row)
+    
+    
+        print(tabela)
 
         conn.close()

@@ -17,56 +17,68 @@ os.system('cls')
 
 def criando_bd():
     conn = sqlite3.connect(
-        "C:/repositorio_beatriz/banco_de_dados_relacional/atividade01_passagens/viajem.db")
+        "..\\banco_de_dados_relacional\\atividade01_passagens\\viajem.db")
     cursor = conn.cursor()
 
-    cursor.execute('''CREATE TABLE passagem (
-    id integer PRIMARY KEY, 
-    id_viajante integer,
-    id_cadeira integer,
-    id_companhia integer,
-    id_preco text,
-    data_ida text,
-    data_volta text, 
-    assento text,
-    portao_embarque text,
-    classe text
-    );
-''')
 
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS viajante (
-        id integer PRIMARY KEY, 
-        nome_viajante text,
-        numero_embarque text,
-        origem text,
-        destino text,
-        idade integer
+        id_viajante INTEGER PRIMARY KEY, 
+        nome_viajante TEXT,
+        numero_embarque TEXT,
+        origem TEXT,
+        destino TEXT,
+        idade INTEGER
         );
     ''')
 
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS companhia_aerea (
-        id integer PRIMARY KEY,
+        id_companhia INTEGER PRIMARY KEY,
         nome_da_empresa TEXT
         );
     ''')
 
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS classe (
-        id_classe integer PRIMARY KEY,
-        classe text
+        id_classe INTEGER PRIMARY KEY,
+        classe TEXT
         );
     ''')
 
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS preco (
-        id integer PRIMARY KEY,
-        preco_da_passagem text,
-        tipo text           
+        id_preco INTEGER PRIMARY KEY,
+        preco_da_passagem TEXT,
+        tipo TEXT           
+        );
+    ''')
+
+    cursor.execute('''CREATE TABLE passagem (
+    id INTEGER PRIMARY KEY, 
+    id_viajante INTEGER,
+    id_cadeira INTEGER,
+    id_companhia INTEGER,
+    id_preco INTEGER,
+    id_classe INTEGER, 
+    data_ida TEXT,
+    data_volta TEXT, 
+    assento TEXT,
+    portao_embarque TEXT,
+    FOREIGN KEY (id_viajante) REFERENCES viajante (id_viajante),
+    FOREIGN KEY (id_cadeira) REFERENCES cadeira (id_cadeira),
+    FOREIGN KEY (id_companhia) REFERENCES companhia_aerea (id_companhia),
+    FOREIGN KEY (id_preco) REFERENCES preco (id_preco),
+    FOREIGN KEY (id_classe) REFERENCES classe (id_classe)               
         );
     ''')
 
     conn.commit()
 
     conn.close()
+
+    return 'OK!'
+
+
+# resposta = criando_bd()
+# print(resposta)
