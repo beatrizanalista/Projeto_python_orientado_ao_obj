@@ -11,42 +11,46 @@ def apagar(pergunta):
     cursor = conn.cursor()
     if pergunta == "viajante":
         nome_viajante = input("Digite o nome do viajante para se apagar: ")
-
+        numero_embarque = input("Digite qual o numero do embarque para apagar: ")
+        idade_viajante = input("Digite a idade para se apagar: ")
         cursor.execute("DELETE FROM  viajante WHERE nome = ?",
-                       (nome_viajante,))
+                       (nome_viajante, numero_embarque, idade_viajante))
         conn.commit()
 
-        print("o viajante foi apagado com sucesso!")
+        print("O viajante foi apagado com sucesso!")
 
         conn.close()
 
     elif pergunta == "classe":
         nome_cupom = input("Digite a promoção do cupom que não será usado: ")
 
-        cursor.execute("DELETE FROM site WHERE cupons = ?", (nome_cupom,))
+        cursor.execute(
+            "DELETE FROM site WHERE cupons = ?", (nome_cupom,))
         conn.commit()
 
-        print("o cupom foi apagado!")
+        print("O cupom foi apagado!")
 
         conn.close()
 
     elif pergunta == "companhia_aerea":
         destino = input("Digite o destino que você deseja remover: ")
 
-        cursor.execute("DELETE FROM destino WHERE destino = ?", (destino,))
+        cursor.execute(
+            "DELETE FROM destino WHERE destino = ?", (destino,))
         conn.commit()
 
-        print("o destino foi removido!")
+        print("O destino foi removido!")
 
         conn.close()
 
     elif pergunta == "passagem":
         assento = input("Digite o assento que deseja remover: ")
-
-        cursor.execute("DELETE FROM passagem WHERE assento = ?", (assento,))
+        data_ida = input("Digite data da ida para apagar: ")
+        data_volta = input("Digite a data volta para apagar: ")
+        cursor.execute("DELETE FROM passagem WHERE assento = ?", (assento, data_ida, data_volta))
         conn.commit()
 
-        print("A passagem foi cancelada com sucesso!")
+        print("Foi cancelado com sucesso!")
 
     elif pergunta == "preço":
         preco = input("Digite o preço que você deseja apagar: ")
@@ -55,6 +59,6 @@ def apagar(pergunta):
             "DELETE FROM preco WHERE preco_da_passagem = ?", (preco,))
         conn.commit()
 
-        print("O preço da passagem foi removido com sucesso!")
+        print("O preço da passagem foi removido!")
 
         conn.close()

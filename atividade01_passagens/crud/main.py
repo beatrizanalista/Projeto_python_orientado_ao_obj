@@ -16,17 +16,17 @@ while True:
     opcao = input("Aperte uma opção: ")
 
     if opcao == '1':
-        pergunta = input("cadastre informações para a compra da passagem:")
+        pergunta = input("Coloque informações para a compra: ")
         adicionar(pergunta)
     elif opcao == '2':
-        pergunta = input("Em qual tabela você deseja visualizar:")
+        pergunta = input("Escolha uma tabela para vizualizar: ")
         visualizar(pergunta)
-        input('Presione enter pra voltar:')
+        input('Presione ENTER para voltar: ')
     elif opcao == '3':
-        pergunta = input("Em qual tabela você deseja atualizar?")
+        pergunta = input("Escolha uma tabela você deseja atualizar: ")
         atualizar(pergunta)
     elif opcao == '4':
-        pergunta = input("Em qual tabela você deseja apagar? ")
+        pergunta = input("Em qual tabela você deseja apagar: ")
         apagar(pergunta)
     elif opcao == '5':
         print("Obrigado, boa viajem!")
