@@ -11,7 +11,7 @@ while True:
     print("\n=== Sistema de Passagens Aéreas ===")
     print("1. Cadastrar informações para a compra")
     print("2. Consultar passagem")
-    print("3. Atualizar as Informações")
+    print("3. Atualizar as Imformações")
     print("4. Excluir informação do resgistro da passagem")
     print("5. Sair do site")
     opcao = input("Aperte uma opção: ")
@@ -28,7 +28,7 @@ while True:
             print(item, end=' | ') 
         pergunta = input("Escolha uma tabela para vizualizar: ")
         visualizar(pergunta)
-        input('Pressione ENTER para voltar: ')
+        input('Presione ENTER para voltar: ')
     elif opcao == '3':
         os.system('cls')
         for item in Sub_menu:
