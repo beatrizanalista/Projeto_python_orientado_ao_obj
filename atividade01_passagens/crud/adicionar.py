@@ -9,17 +9,18 @@ def adicionar(adicionar):
 
     cursor = conn.cursor()
     if adicionar == "passagem":
+        
         id_viajante = input("Insira o id do viajante:")
         id_cadeira = input("Insira o id da cadeira:")
         id_companhia = input("Insirao id da companhia:")
         id_preco = input("Insira o id do preço:")
+        id_classe = input("Qual foi a classe escolhida:")
         data_ida = input("Insira a data da ida:")
         data_volta = input("Insira a data da volta:")
         assento = input("Informe o assento:")
         portao_embarque = input("Qual será o portão de embarque:")
-        classe = input("Qual foi a classe escolhida:")
         cursor.execute(
-            'INSERT INTO passagem (id_viajante,id_cadeira,id_companhia,id_preco, data_ida,data_volta, assento,portao_embarque, classe ) values  (?,?,?,?,?,?,?,?,?)', (id_viajante, id_cadeira, id_companhia, id_preco, data_volta, data_ida, assento, portao_embarque, classe,))
+            'INSERT INTO passagem (id_viajante, id_cadeira, id_companhia, id_preco, id_classe, data_ida, data_volta, assento, portao_embarque) values  (?,?,?,?,?,?,?,?,?)', (id_viajante, id_cadeira, id_companhia, id_preco, id_classe, data_ida, data_volta, assento, portao_embarque,))
 
         conn.commit()
         conn.close()    
@@ -45,10 +46,9 @@ def adicionar(adicionar):
         conn.close()
 
     if adicionar == "classe":
-        id_classe = input("Insira o id da classe aerea: ")
-        classe = input("Insira a classe do assento: ")
+        classe = input("Insira o tipo de serviço: ")
         cursor.execute(
-            ' INSERT INTO classe (id_classe, classe) values(?,?)', (id_classe, classe,))
+            ' INSERT INTO classe (classe) values(?)', (classe,))
 
         conn.commit()
         conn.close()
@@ -57,7 +57,7 @@ def adicionar(adicionar):
         preco_da_passagem = input("O preço da passagem é: ")
         tipo = input("Tipo da classe escolhida: ")
         cursor.execute(
-            ' INSERT INTO preco (id,preco_da_passagem,tipo) values (?,?)', preco_da_passagem, tipo,)
+            ' INSERT INTO preco (preco_da_passagem, tipo) values (?,?)', (preco_da_passagem, tipo,))
 
         conn.commit()
         conn.close()

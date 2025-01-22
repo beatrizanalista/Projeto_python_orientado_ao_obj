@@ -23,15 +23,15 @@ def atualizar(Atualizar):
         nome_companhia = input("Digite o novo nome da companhia aerea: ")
         id_companhia = int(input("Digite o ID da companhia: "))
 
-        cursor.execute("UPDATE companhia_aerea SET nome_da_empresa = ? WHERE id_companhia = ?", (nome_companhia, id_companhia))
+        cursor.execute("UPDATE companhia_aerea SET nome_da_empresa = ? WHERE id_companhia = ?", (nome_companhia, id_companhia,))
 
 
     elif Atualizar == "classe":
-        assento_atual = input("digite o assento atual: ")
-        novo_assento = input("digite o novo assento que será usado: ")
+        id_classe = input("Digite o id da classe: ")
+        nova_classe = input("Digite o novo tipo de classe que será usado: ")
 
-        cursor.execute("UPDATE classe SET assento_atual = ? WHERE assento = ?",
-                       (novo_assento, assento_atual))
+        cursor.execute("UPDATE classe SET classe = ? WHERE id_classe = ?",
+                       (nova_classe, id_classe))
 
     elif Atualizar == "passagem":
         nome_viajante = input("Digite o nome do viajante: ")

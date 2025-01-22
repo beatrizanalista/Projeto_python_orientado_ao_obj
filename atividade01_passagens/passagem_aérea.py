@@ -55,21 +55,21 @@ def criando_bd():
     ''')
 
     cursor.execute('''CREATE TABLE passagem (
-    id INTEGER PRIMARY KEY, 
-    id_viajante INTEGER,
-    id_cadeira INTEGER,
-    id_companhia INTEGER,
-    id_preco INTEGER,
-    id_classe INTEGER, 
-    data_ida TEXT,
-    data_volta TEXT, 
-    assento TEXT,
-    portao_embarque TEXT,
-    FOREIGN KEY (id_viajante) REFERENCES viajante (id_viajante),
-    FOREIGN KEY (id_cadeira) REFERENCES cadeira (id_cadeira),
-    FOREIGN KEY (id_companhia) REFERENCES companhia_aerea (id_companhia),
-    FOREIGN KEY (id_preco) REFERENCES preco (id_preco),
-    FOREIGN KEY (id_classe) REFERENCES classe (id_classe)               
+        id INTEGER PRIMARY KEY, 
+        id_viajante INTEGER,
+        id_cadeira INTEGER,
+        id_companhia INTEGER,
+        id_preco INTEGER,
+        id_classe INTEGER, 
+        data_ida TEXT,
+        data_volta TEXT, 
+        assento TEXT,
+        portao_embarque TEXT,
+        FOREIGN KEY (id_viajante) REFERENCES viajante (id_viajante),
+        FOREIGN KEY (id_cadeira) REFERENCES cadeira (id_cadeira),
+        FOREIGN KEY (id_companhia) REFERENCES companhia_aerea (id_companhia),
+        FOREIGN KEY (id_preco) REFERENCES preco (id_preco),
+        FOREIGN KEY (id_classe) REFERENCES classe (id_classe)               
         );
     ''')
 
