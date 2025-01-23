@@ -16,7 +16,7 @@ def atualizar(Atualizar):
         nova_origem = input("Digite a nova origem da viajem: ")
         novo_destino = input("Digite o novo destino escolhido: ")
         nova_idade = input("insira a idade correta: ")
-        cursor.execute("UPDATE viajante SET nome_viajante = ? WHERE nome_viajante = ?",
+        cursor.execute("UPDATE viajante SET nome_viajante = ?, novo_numero = ?, nova_origem = ?, novo_destino = ?, nova_idade = ? WHERE nome_viajante = ?",
                        (novo_numero, nome_viajante,nova_origem, novo_destino, nova_idade))
 
     elif Atualizar == "companhia aerea":
@@ -40,7 +40,7 @@ def atualizar(Atualizar):
         nova_data_ida = input("Digite a nova data da ida: ")
         nova_classe = input("Digite a nova classe a ser escolhida: ")
         novo_assento = input("Digite o novo assento: ")
-        cursor.execute("UPDATE passagem SET data = ? WHERE nome_do_viajante = ?",
+        cursor.execute("UPDATE passagem SET data = ?, nome_viajante = ?, nova_data = ?, nova_data_volta = ?, nova_classe = ?, novo_assento = ? nova_data_ida = ?  WHERE nome_do_viajante = ?",
                        (nova_data, nome_viajante, nova_data, nova_data_volta, nova_data_ida, nova_classe))
 
     elif Atualizar == "preco":
